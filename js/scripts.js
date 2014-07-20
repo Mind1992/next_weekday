@@ -48,13 +48,22 @@ var weekdaysInMonth = function(day, month) {
 		return number;
 		}
 	
-	var inputtedMonthAsNumber = dateStringToNumber(monthsInNumbers,inputtedMonth,inputtedMonthAsNumber);
-	var inputtedDayAsNumber = dateStringToNumber(daysInNumbers,inputtedDay,inputtedDayAsNumber);
+	var inputtedMonthAsNumber = dateStringToNumber(monthsInNumbers,inputtedMonth,inputtedMonthAsNumber); 
+	var inputtedDayAsNumber = dateStringToNumber(daysInNumbers,inputtedDay,inputtedDayAsNumber); 
 
-	var newDate = new Date(currentYear,inputtedMonthAsNumber); // Fri Aug 01 2014 00:00:00 GMT-0700 (PDT) 
-	var newDateMonth = newDate.getMonth(); // 7th month
-	var newDateDay = newDate.getDay(); // 5th weekday which is Friday
-	var newDateDayAsMonthDay = newDate.getDate(); // 1st day of the month
+	var newDate = new Date(currentYear,inputtedMonthAsNumber, inputtedDayAsNumber);  
+	var newDateDayAsMonthDay = newDate.getDate(); 
+  
+  
   var allDatesInMonth = [];
-
+  while(newDateDayAsMonthDay < 31) {
+  	allDatesInMonth.push(newDateDayAsMonthDay);
+  	newDateDayAsMonthDay += 7
+  }
+  var array = []
+  allDatesInMonth.forEach(function(date){
+  	array.push((inputtedMonthAsNumber + 1 + "/") + ("" + date + "/") + currentYear);
+  });
+  console.log(array);
+  return array;
 }
