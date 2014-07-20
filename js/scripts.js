@@ -48,15 +48,15 @@ var weekdaysInMonth = function(day, month) {
 		return number;
 		}
 	
-	var inputtedMonthAsNumber = dateStringToNumber(monthsInNumbers,inputtedMonth,inputtedMonthAsNumber); 
-	var inputtedDayAsNumber = dateStringToNumber(daysInNumbers,inputtedDay,inputtedDayAsNumber); 
+	var inputtedMonthAsNumber = dateStringToNumber(monthsInNumbers,inputtedMonth,inputtedMonthAsNumber); // 8
+	var inputtedDayAsNumber = dateStringToNumber(daysInNumbers,inputtedDay,inputtedDayAsNumber); // 1
 
-	var newDate = new Date(currentYear,inputtedMonthAsNumber, inputtedDayAsNumber);  
+	var newDate = new Date(currentYear,inputtedMonthAsNumber, inputtedDayAsNumber); // Mon Sep 01 2014 00:00:00 GMT-0700 (PDT) 
 	var newDateDayAsMonthDay = newDate.getDate(); 
   
   
   var allDatesInMonth = [];
-  while(newDateDayAsMonthDay < 31) {
+  while(newDateDayAsMonthDay < 32) {
   	allDatesInMonth.push(newDateDayAsMonthDay);
   	newDateDayAsMonthDay += 7
   }
