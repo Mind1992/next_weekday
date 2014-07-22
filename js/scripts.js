@@ -19,7 +19,7 @@ var nextWeekday = function(day){
 		};
 
 	var numberedDay = dateStringToNumber(daysInNumbers,inputtedDay,numberedDay); 
-	var nextOccurenceMonthDay = monthDay - (currentDay - numberedDay) +7; 
+	var nextOccurenceMonthDay = monthDay - (currentDay - numberedDay); 
 	var nextOccurenceFullDate = "" + (currentMonth + 1) + "/" + nextOccurenceMonthDay + "/" + currentYear;
 	
 	return nextOccurenceFullDate;
@@ -50,7 +50,7 @@ var weekdaysInMonth = function(day, month) {
 	var newMonthDay = newDate.getDate(); 
   var allDatesInMonth = [];
   
-  while(newMonthDay < 32) {
+  while(newMonthDay < 31) {
   	allDatesInMonth.push(newMonthDay);
   	newMonthDay += 7;
   }
@@ -62,3 +62,18 @@ var weekdaysInMonth = function(day, month) {
   });
   return array;
 };
+
+$(document).ready(function(){
+	$('#get-next-occurrence').click(function(){
+		var dayInput = $('#next-weekday').val();
+		var result = nextWeekday(dayInput);
+		$('#added-next-occurrence p').text(result);
+	});
+	
+	$('#get-dates-in-month').click(function(){
+		var weekday = $('#weekday').val();
+		var month = $('#month').val();
+		var resultMonth = weekdaysInMonth(weekday,month);
+		$('#added-dates-in-month p').text(resultMonth);
+	});
+});
