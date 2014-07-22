@@ -9,6 +9,7 @@ var nextWeekday = function(day){
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
   
   var  dateStringToNumber = function(array,string,number) {
+			
 			for (var i = 0; array.length > i; i++){
 				if (string === array[i]) {
 					number = i;
@@ -25,6 +26,7 @@ var nextWeekday = function(day){
 };
 
 var weekdaysInMonth = function(day, month) {
+	
 	var currentDate = new Date(); 
 	var currentYear = currentDate.getFullYear();   
 	var monthsInNumbers = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -33,6 +35,7 @@ var weekdaysInMonth = function(day, month) {
   var inputtedMonth = month.charAt(0).toUpperCase() + month.slice(1); 
 
 		var  dateStringToNumber = function(array,string,number) {
+			
 			for (var i = 0; array.length > i; i++){
 				if (string === array[i]) {
 					number = i;
