@@ -1,39 +1,35 @@
 var nextWeekday = function(day){
 
   var currentDate = new Date(); 
-	var currentYear = currentDate.getFullYear();
+	var currentYear = currentDate.getFullYear(); 
 	var currentMonth = currentDate.getMonth(); 
-	var currentDay = currentDate.getDay(); 
 	var monthDay = currentDate.getDate(); 
+	var currentDay = currentDate.getDay(); 
 	var daysInNumbers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
-  
-  var  dateStringToNumber = function(array,string,number) {
-			
-			for (var i = 0; array.length > i; i++){
-				if (string === array[i]) {
-					number = i;
-				}
-		  }
-		return number;
-		};
-
-	var numberedDay = dateStringToNumber(daysInNumbers,inputtedDay,numberedDay); 
-	var nextOccurenceMonthDay = monthDay - (currentDay - numberedDay); 
-	var nextOccurenceFullDate = "" + (currentMonth + 1) + "/" + nextOccurenceMonthDay + "/" + currentYear;
-	
+	var numberedDay = 0; 
+	for (var i = 0; daysInNumbers.length > i; i++){
+		if (inputtedDay === daysInNumbers[i]) {
+			numberedDay = i;
+		}
+  }
+	if (numberedDay <= currentDay) {
+		numberedDay += 7
+	}
+	var nextOccurenceMonthDay = new Date(currentDate.setDate(currentDate.getDate() + (numberedDay - currentDay)));
+	var nextOccurenceDate = nextOccurenceMonthDay.getDate();
+	var nextOccurenceFullDate = "" + (currentMonth + 1) + "/" + nextOccurenceDate + "/" + currentYear;
+	console.log(nextOccurenceMonthDay);
 	return nextOccurenceFullDate;
 };
 
 var weekdaysInMonth = function(day, month) {
-	
 	var currentDate = new Date(); 
 	var currentYear = currentDate.getFullYear();   
 	var monthsInNumbers = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	var daysInNumbers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
   var inputtedMonth = month.charAt(0).toUpperCase() + month.slice(1); 
-
 		var  dateStringToNumber = function(array,string,number) {
 			
 			for (var i = 0; array.length > i; i++){
