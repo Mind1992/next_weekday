@@ -1,5 +1,4 @@
 var nextWeekday = function(day){
-
   var currentDate = new Date(); 
 	var currentYear = currentDate.getFullYear(); 
 	var currentMonth = currentDate.getMonth();  
@@ -12,7 +11,6 @@ var nextWeekday = function(day){
 			numberedDay = i;
 		}
   }
-	
 	if (numberedDay <= currentDay) {
 		numberedDay += 7;
 	}
@@ -31,23 +29,19 @@ var weekdaysInMonth = function(day, month) {
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
   var inputtedMonth = month.charAt(0).toUpperCase() + month.slice(1); 
 	var numberedDay = 0; 
-  
   for (var i = 0; daysInNumbers.length > i; i++){
 				if (inputtedDay === daysInNumbers[i]) {
 					numberedDay = i;
 				}
-		  }
-  
+		  } 
   var numberedMonth = 0; 
 	for (var i = 0; monthsInNumbers.length > i; i++){
 				if (inputtedMonth === monthsInNumbers[i]) {
 					numberedMonth = i;
 				}
 		  }
-	
 	var newDate = new Date(currentYear,numberedMonth); 
 	var newWeekday = newDate.getDay(); 
-
 	if (numberedDay <= newWeekday && (numberedDay - newWeekday) != 0) {
 			numberedDay += 7
 		}
@@ -57,12 +51,10 @@ var weekdaysInMonth = function(day, month) {
 	var newMonth = newDate.getMonth(); 
 	var lastDayOfMonth = new Date(currentYear,numberedMonth + 1, 0).getDate();
   var allDatesInMonth = []; 
-  
   while(newMonthDay <= lastDayOfMonth) {
   	allDatesInMonth.push(newMonthDay);
   	newMonthDay += 7;
   }
-  
   var array = [];
   allDatesInMonth.forEach(function(date){
   	array.push((numberedMonth + 1 + "/") + ("" + date + "/") + currentYear);
