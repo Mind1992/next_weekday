@@ -6,8 +6,7 @@ var nextWeekday = function(day){
 	var currentDay = currentDate.getDay(); 
 	var daysInNumbers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
-	var numberedDay = 0; 
-	
+	var numberedDay = 0; 	
 	for (var i = 0; daysInNumbers.length > i; i++){
 		if (inputtedDay === daysInNumbers[i]) {
 			numberedDay = i;
@@ -15,10 +14,9 @@ var nextWeekday = function(day){
   }
 	
 	if (numberedDay <= currentDay) {
-		numberedDay += 7
+		numberedDay += 7;
 	}
-	
-	var nextOccurenceMonthDay = new Date(currentDate.setDate(currentDate.getDate() + (numberedDay - currentDay))); console.log(nextOccurenceMonthDay);
+	var nextOccurenceMonthDay = new Date(currentDate.setDate(currentDate.getDate() + (numberedDay - currentDay)));
 	var nextOccurenceDate = nextOccurenceMonthDay.getDate();
 	var nextOccurenceMonth = nextOccurenceMonthDay.getMonth();
 	var nextOccurenceFullDate = "" + (nextOccurenceMonth + 1) + "/" + nextOccurenceDate + "/" + currentYear;
@@ -32,36 +30,33 @@ var weekdaysInMonth = function(day, month) {
 	var daysInNumbers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var inputtedDay = day.charAt(0).toUpperCase() + day.slice(1); 
   var inputtedMonth = month.charAt(0).toUpperCase() + month.slice(1); 
-	
 	var numberedDay = 0; 
+  
   for (var i = 0; daysInNumbers.length > i; i++){
 				if (inputtedDay === daysInNumbers[i]) {
 					numberedDay = i;
 				}
 		  }
-	
-
+  
   var numberedMonth = 0; 
 	for (var i = 0; monthsInNumbers.length > i; i++){
 				if (inputtedMonth === monthsInNumbers[i]) {
 					numberedMonth = i;
 				}
 		  }
-
-var newDate = new Date(currentYear,numberedMonth); 
-var newWeekday = newDate.getDay(); 
-
-if (numberedDay <= newWeekday) {
-		numberedDay += 7
-	}
 	
+	var newDate = new Date(currentYear,numberedMonth); 
+	var newWeekday = newDate.getDay(); 
 
+	if (numberedDay <= newWeekday && (numberedDay - newWeekday) != 0) {
+			numberedDay += 7
+		}
   var nextOccurenceMonthDay = new Date(newDate.setDate(newDate.getDate() + (numberedDay - newWeekday))); 
   var nextOccurenceDate = nextOccurenceMonthDay.getDate();
 	var newMonthDay = newDate.getDate(); 
 	var newMonth = newDate.getMonth(); 
 	var lastDayOfMonth = new Date(currentYear,numberedMonth + 1, 0).getDate();
-  var allDatesInMonth = [];
+  var allDatesInMonth = []; 
   
   while(newMonthDay <= lastDayOfMonth) {
   	allDatesInMonth.push(newMonthDay);
@@ -69,7 +64,6 @@ if (numberedDay <= newWeekday) {
   }
   
   var array = [];
-  
   allDatesInMonth.forEach(function(date){
   	array.push((numberedMonth + 1 + "/") + ("" + date + "/") + currentYear);
   });
