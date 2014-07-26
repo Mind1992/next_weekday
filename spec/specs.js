@@ -9,6 +9,6 @@ describe("nextWeekday", function(){
 
 describe("weekdaysInMonth", function(){
 	it("should return all the dates of the given weekday in the given month", function(){
-		weekdaysInMonth("friday", "october").should.eql(["10/6/2014","10/13/2014","10/20/2014","10/27/2014"]);
+		weekdaysInMonth("friday", "october").should.eql(["10/3/2014","10/10/2014","10/17/2014","10/24/2014","10/31/2014"]);
 	});
 });
