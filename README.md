@@ -1,6 +1,13 @@
-<h1>Next Weekday</h1>
-<p>A webpage that allows users to input a day of the week (like Friday) and return the date of the next occurrence (like 7/11/2014). If a user enters the current day, it should return the date of a week from today - not today.</p>
-<br>
-<p>The webpage also allows users to input a weekday (like Monday) and a month (like January) and return all the dates of that weekday in the given month in the current year</p>
+# Next Weekday
+==========================
+## About
+This project is written for Epicodus' JavaScript BDD assessment.
+A webpage that allows users to input a day of the week (like Friday) and return the date of the next occurrence (like 7/11/2014). If a user enters the current day, it should return the date of a week from today - not today.
 
-<p>Written by Sergii Mertsalov for Epicodus' JavaScript BDD assessment</p>
+The webpage also allows users to input a weekday (like Monday) and a month (like January) and return all the dates of that weekday in the given month in the current year.
+## Setup
+Clone this repository or download the .zip and open up the index.html file in the browser.
+##Author
+Sergii Mertsalov 
+##License
+MIT
